@@ -16,6 +16,11 @@ public class PlayerControl : MonoBehaviour
     private float HozPos;
     public float CastDistance = 1f;
 
+    [Header("Jetpack Variables")]
+    public bool JetpackFueled = false;
+    public float FuelAmount = 0f;
+    public float ReduceAmount = 5f;
+
     void Start()
     {
         PlrRB = GetComponent<Rigidbody2D>();
@@ -37,8 +42,16 @@ public class PlayerControl : MonoBehaviour
         {
             PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
         }
-
-
+        // when the player holds the jump button and the backpack is fueled then they fly
+        else if (Input.GetButtonDown("Jump") && JetpackFueled)
+        {
+            PlrRB.AddForce(transform.up, ForceMode2D.Force);
+            FuelAmount = FuelAmount - ReduceAmount;
+            if (FuelAmount <= 0f)
+            {
+                JetpackFueled = false;
+            }
+        }
     }
 
     // checks player is on ground/platform
