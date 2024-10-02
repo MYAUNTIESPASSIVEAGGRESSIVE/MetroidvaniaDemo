@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     public bool JetpackFueled = false;
     public float FuelAmount = 0f;
     public float ReduceAmount = 5f;
+    public float FlightSpeed = 5f;
 
     void Start()
     {
@@ -38,15 +39,19 @@ public class PlayerControl : MonoBehaviour
         PlrRB.velocity = new Vector2(HozPos * MoveSpeed, PlrRB.velocity.y);
 
         // When jump button pressed + is grounded the player is able to jump
-        if (Input.GetButton("Jump") && GroundChecker())
+        if (Input.GetButtonDown("Jump") && GroundChecker())
         {
             PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
         }
         // when the player holds the jump button and the backpack is fueled then they fly
-        else if (Input.GetButtonDown("Jump") && JetpackFueled)
-        {
-            PlrRB.AddForce(transform.up, ForceMode2D.Force);
+        else if (Input.GetButton("Jump") && JetpackFueled)
+        { 
+            PlrRB.AddForce(transform.up * FlightSpeed, ForceMode2D.Force);
+
+            // fuel reduces while in flight
             FuelAmount = FuelAmount - ReduceAmount;
+
+            // if the fuel ammount is 0 then the player cannot keep flying and falls
             if (FuelAmount <= 0f)
             {
                 JetpackFueled = false;
