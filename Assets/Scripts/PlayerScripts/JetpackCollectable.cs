@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JetpackCollectable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Script References")]
+    public PlayerControl PlayerControl;
+    [Header("Fuel Variables")]
+    public float FuelMaximum = 10000f;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
+        // checks player collides with object
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // jetpack active boolean is now true
+            PlayerControl.JetpackFueled = true;
+            // fuel amount is now the fuel maximum
+            PlayerControl.FuelAmount = FuelMaximum;
+            // then the object is now destroyed
+            Destroy(gameObject);
+        }
     }
 }
