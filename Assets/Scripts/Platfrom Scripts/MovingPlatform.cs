@@ -6,24 +6,33 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     [Header("Start and End Positions")]
-    public Vector2 StartPos;
-    public Vector2 EndPos;
+    public Transform[] positions;
+    private Transform targetpos;
+    private int currentpos;
 
     [Header("Platform Variables")]
     public float MoveSpeed;
     public float MoveDelay;
 
-    void Start()
+    private void Start()
     {
-        transform.position = StartPos;
+        targetpos = positions[0];
     }
-    void Update()
+
+    private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, EndPos, MoveSpeed * Time.deltaTime);
+        PlatformMovement();
+    }
 
-        if (transform.position == EndPos)
-        {
+    IEnumerator PauseTime()
+    {
+        yield return new WaitForSecondsRealtime(MoveDelay);
+    }
 
-        }
+    void PlatformMovement()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, targetpos.position, MoveSpeed * Time.deltaTime);
+
+
     }
 }
