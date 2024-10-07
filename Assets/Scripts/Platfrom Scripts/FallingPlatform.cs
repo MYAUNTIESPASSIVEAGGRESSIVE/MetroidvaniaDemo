@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Game Object References")]
+    public Rigidbody2D FallPlatform;
+
+    [Header("MovementVariables")]
+    public float DelayTime = 2f;
+
+    private void Start()
     {
-        
+        FallPlatform.simulated = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(FallDelay());
+        }
+    }
+
+    IEnumerator FallDelay()
+    {
+        yield return new WaitForSecondsRealtime(DelayTime);
+        FallPlatform.simulated = true;
     }
 }
