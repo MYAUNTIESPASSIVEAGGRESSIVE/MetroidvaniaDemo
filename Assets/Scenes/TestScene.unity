@@ -344,7 +344,6 @@ GameObject:
   - component: {fileID: 627518528}
   - component: {fileID: 627518531}
   - component: {fileID: 627518532}
-  - component: {fileID: 627518533}
   m_Layer: 0
   m_Name: PlayerTemp
   m_TagString: Player
@@ -444,7 +443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1356700858}
+  - {fileID: 1880077563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &627518531
@@ -505,19 +504,6 @@ MonoBehaviour:
   FuelAmount: 10000
   ReduceAmount: 2
   FlightSpeed: 1
---- !u!114 &627518533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627518527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc11ee7c6c1c5b74dbbfd01969434ed4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpinPos: {fileID: 1356700857}
 --- !u!1 &931722277
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,38 +568,6 @@ Transform:
   - {fileID: 2069953933}
   - {fileID: 931722278}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1356700857
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1356700858}
-  m_Layer: 0
-  m_Name: SpinPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1356700858
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356700857}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.063, y: 0.203, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1880077563}
-  m_Father: {fileID: 627518530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472738746
 GameObject:
@@ -1080,6 +1034,7 @@ GameObject:
   - component: {fileID: 1880077562}
   - component: {fileID: 1880077565}
   - component: {fileID: 1880077564}
+  - component: {fileID: 1880077566}
   m_Layer: 0
   m_Name: TempBoomerang
   m_TagString: Untagged
@@ -1147,13 +1102,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880077561}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0, z: 0}
-  m_LocalScale: {x: 1.3884043, y: 0.39981338, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.66300005, y: 0.20300007, z: -1}
+  m_LocalScale: {x: 0.4, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1356700858}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 627518530}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &1880077564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1226,6 +1181,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1880077566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880077561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc11ee7c6c1c5b74dbbfd01969434ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boomerang: {fileID: 1880077565}
+  BoomSpeed: 2
+  ThrowCooldown: 2
 --- !u!1 &2069953932
 GameObject:
   m_ObjectHideFlags: 0
