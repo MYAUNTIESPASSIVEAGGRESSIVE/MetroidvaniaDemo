@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
@@ -8,11 +10,13 @@ public class FallingPlatform : MonoBehaviour
     public Rigidbody2D FallPlatform;
 
     [Header("MovementVariables")]
+    public float FallSpeed = 2f;
     public float DelayTime = 2f;
+    public float DestroyTime = 3f;
 
     private void Start()
     {
-        FallPlatform.simulated = false;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,9 +27,20 @@ public class FallingPlatform : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StopCoroutine(FallDelay());
+        }
+    }
+
     IEnumerator FallDelay()
     {
         yield return new WaitForSecondsRealtime(DelayTime);
-        FallPlatform.simulated = true;
+        FallPlatform.constraints = RigidbodyConstraints2D.None;
+        FallPlatform.velocity = new Vector2(FallPlatform.velocity.x, FallSpeed);
+        yield return new WaitForSecondsRealtime(DestroyTime);
+        gameObject.SetActive(false);
     }
 }
