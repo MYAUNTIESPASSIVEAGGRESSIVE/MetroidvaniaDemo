@@ -14,7 +14,10 @@ public class PlayerControl : MonoBehaviour
     public float MoveSpeed = 20f;
     public float JumpHeight = 5f;
     private float HozPos;
+    private float VertPos;
     public float CastDistance = 1f;
+    public bool OnLadder = false;
+    public float ClimbSpeed = 2f;
 
     [Header("Jetpack Variables")]
     public bool JetpackFueled = false;
@@ -30,32 +33,41 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         HozPos = Input.GetAxisRaw("Horizontal");
+        VertPos = Input.GetAxisRaw("Vertical");
 
-        CharacterMove();   
+        CharacterMove();
     }
 
     private void CharacterMove()
     {
         PlrRB.velocity = new Vector2(HozPos * MoveSpeed, PlrRB.velocity.y);
 
-        // When jump button pressed + is grounded the player is able to jump
-        if (Input.GetButtonDown("Jump") && GroundChecker())
+        if (!OnLadder)
         {
-            PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
-        }
-        // when the player holds the jump button and the backpack is fueled then they fly
-        else if (Input.GetButton("Jump") && JetpackFueled)
-        { 
-            PlrRB.AddForce(transform.up * FlightSpeed, ForceMode2D.Force);
-
-            // fuel reduces while in flight
-            FuelAmount = FuelAmount - ReduceAmount;
-
-            // if the fuel ammount is 0 then the player cannot keep flying and falls
-            if (FuelAmount <= 0f)
+            // When jump button pressed + is grounded the player is able to jump
+            if (Input.GetButtonDown("Jump") && GroundChecker())
             {
-                JetpackFueled = false;
+                PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
             }
+            // when the player holds the jump button and the backpack is fueled then they fly
+            else if (Input.GetButton("Jump") && Input.GetKey(KeyCode.LeftShift) && JetpackFueled)
+            {
+                PlrRB.AddForce(transform.up * FlightSpeed, ForceMode2D.Force);
+
+                // fuel reduces while in flight
+                FuelAmount = FuelAmount - ReduceAmount;
+
+                // if the fuel ammount is 0 then the player cannot keep flying and falls
+                if (FuelAmount <= 0f)
+                {
+                    JetpackFueled = false;
+                }
+            }
+        }
+
+        if (OnLadder)
+        {
+            LadderMovement();
         }
     }
 
@@ -75,5 +87,10 @@ public class PlayerControl : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position - transform.up * CastDistance, CheckSize);
         Gizmos.color = Color.green;
+    }
+
+    public void LadderMovement()
+    {
+        PlrRB.velocity = new Vector2(PlrRB.velocity.x, VertPos * ClimbSpeed);
     }
 }

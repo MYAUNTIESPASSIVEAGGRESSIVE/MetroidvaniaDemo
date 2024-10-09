@@ -11,6 +11,7 @@ public class BoomerangScript : MonoBehaviour
     [Header("Boomerang Stats")]
     public float BoomSpeed = 10f;
     private bool inflight = false;
+    private bool isholding = true;
     public float ThrowCooldown = 2;
 
     void Start()
@@ -22,7 +23,7 @@ public class BoomerangScript : MonoBehaviour
     void Update()
     {
 
-        if (!inflight)
+        if (!inflight && isholding)
         {
             BoomPoint();
         }
@@ -30,7 +31,9 @@ public class BoomerangScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !inflight)
         {
             inflight = true;
-            ShootBoom();
+            isholding = false;
+
+            BoomShoot();
         }
     }
 
@@ -49,12 +52,23 @@ public class BoomerangScript : MonoBehaviour
         transform.up = PointTo;
     }
 
-    void ShootBoom()
+    void BoomShoot()
     {
-        Vector3 ShootPos = Input.mousePosition;
-        ShootPos = Camera.main.ScreenToWorldPoint(ShootPos);
+        Vector3 Shootpoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        //Boomerang.transform.position = Vector2.MoveTowards(Boomerang.transform.position, , BoomSpeed * Time.deltaTime);
+        Boomerang.velocity = new Vector2(Shootpoint.x, Shootpoint.y).normalized * BoomSpeed;
+
+        if (Vector2.Distance(Boomerang.transform.position, Shootpoint) < 0.05f)
+        {
+            BoomReturn();
+        }
     }
+
+    void BoomReturn()
+    {
+
+    }
+
+
 
 }
