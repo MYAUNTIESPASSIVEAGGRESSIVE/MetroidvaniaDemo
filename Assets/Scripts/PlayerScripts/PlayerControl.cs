@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     public float JumpHeight = 5f;
     private float HozPos;
     private float VertPos;
+    private bool Interacted;
     public float CastDistance = 1f;
     public bool OnLadder = false;
     public float ClimbSpeed = 2f;
@@ -28,12 +29,15 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         PlrRB = GetComponent<Rigidbody2D>();
+        OnLadder = false;
     }
 
     void Update()
     {
         HozPos = Input.GetAxisRaw("Horizontal");
         VertPos = Input.GetAxisRaw("Vertical");
+        Interacted = Input.GetKeyDown(KeyCode.E);
+
 
         CharacterMove();
     }
@@ -42,15 +46,16 @@ public class PlayerControl : MonoBehaviour
     {
         PlrRB.velocity = new Vector2(HozPos * MoveSpeed, PlrRB.velocity.y);
 
-        if (!OnLadder)
+        // When jump button pressed + is grounded the player is able to jump
+        if (Input.GetButton("Jump") && GroundChecker())
         {
-            // When jump button pressed + is grounded the player is able to jump
-            if (Input.GetButtonDown("Jump") && GroundChecker())
-            {
-                PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
-            }
+            PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
+        }
+
+        if (!OnLadder) 
+        {
             // when the player holds the jump button and the backpack is fueled then they fly
-            else if (Input.GetButton("Jump") && Input.GetKey(KeyCode.LeftShift) && JetpackFueled)
+            if (Input.GetButton("Jump") && Input.GetKey(KeyCode.LeftShift) && JetpackFueled)
             {
                 PlrRB.AddForce(transform.up * FlightSpeed, ForceMode2D.Force);
 
@@ -63,11 +68,6 @@ public class PlayerControl : MonoBehaviour
                     JetpackFueled = false;
                 }
             }
-        }
-
-        if (OnLadder)
-        {
-            LadderMovement();
         }
     }
 
@@ -88,6 +88,16 @@ public class PlayerControl : MonoBehaviour
         Gizmos.DrawWireCube(transform.position - transform.up * CastDistance, CheckSize);
         Gizmos.color = Color.green;
     }
+
+    private void OnTriggerStay2D(Collider2D ladder)
+    {
+        if (ladder.gameObject.CompareTag("Ladder") && Interacted)
+        {
+            LadderMovement();
+        }
+    }
+
+
 
     public void LadderMovement()
     {
