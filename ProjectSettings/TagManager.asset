@@ -8,6 +8,7 @@ TagManager:
   - FloatingPlat
   - DroppingPlat
   - MovingPlat
+  - Ladder
   layers:
   - Default
   - TransparentFX

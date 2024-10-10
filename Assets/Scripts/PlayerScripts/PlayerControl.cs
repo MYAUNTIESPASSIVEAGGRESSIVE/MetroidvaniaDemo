@@ -36,10 +36,11 @@ public class PlayerControl : MonoBehaviour
     {
         HozPos = Input.GetAxisRaw("Horizontal");
         VertPos = Input.GetAxisRaw("Vertical");
-        Interacted = Input.GetKeyDown(KeyCode.E);
-
+        Input.GetKeyDown(KeyCode.E);
 
         CharacterMove();
+
+
     }
 
     private void CharacterMove()
@@ -91,16 +92,18 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D ladder)
     {
-        if (ladder.gameObject.CompareTag("Ladder") && Interacted)
+        if (ladder.gameObject.CompareTag("Ladder"))
         {
-            LadderMovement();
+            OnLadder = true;
+            PlrRB.velocity = new Vector2(PlrRB.velocity.x, VertPos * ClimbSpeed);
         }
     }
 
-
-
-    public void LadderMovement()
+    private void OnTriggerExit2D(Collider2D ladder)
     {
-        PlrRB.velocity = new Vector2(PlrRB.velocity.x, VertPos * ClimbSpeed);
+        if (ladder.gameObject.CompareTag("Ladder"))
+        {
+            OnLadder = false;
+        }
     }
 }
