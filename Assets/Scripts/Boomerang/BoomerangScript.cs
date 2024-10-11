@@ -7,10 +7,11 @@ public class BoomerangScript : MonoBehaviour
     [Header("Object References")]
     public GameObject BoomerangStillObject;
     public Rigidbody2D BoomerangMovingObject;
+    public Transform PlayerPos;
 
     [Header("Boomerang Variables")]
     public float BoomerangRotSpeed = 10f;
-    public float BoomeranFlySpeed = 2f;
+    public float BoomeranFlySpeed = 100f;
     private bool InFlight;
 
     private void Start()
@@ -46,5 +47,10 @@ public class BoomerangScript : MonoBehaviour
         Vector3 ShootDir = Mpos - BoomerangStillObject.transform.position;
 
         BoomMove.velocity = new Vector2(ShootDir.x, ShootDir.y).normalized * BoomeranFlySpeed;
+
+        if (Vector3.Distance(BoomMove.position, ShootDir) < 0.05f)
+        {
+            BoomMove.position = Vector2.MoveTowards(BoomMove.position, PlayerPos.transform.position, BoomeranFlySpeed * Time.deltaTime);
+        }
     }
 }

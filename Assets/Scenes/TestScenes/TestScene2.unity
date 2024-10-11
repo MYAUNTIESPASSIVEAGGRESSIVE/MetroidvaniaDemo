@@ -1148,8 +1148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoomerangStillObject: {fileID: 6674698980331683656}
   BoomerangMovingObject: {fileID: 8175739535507363920, guid: 5cae27f5d8afe7b468a4f1d7b38eda1a, type: 3}
+  PlayerPos: {fileID: 1566561305}
   BoomerangRotSpeed: 10
-  BoomeranFlySpeed: 2
+  BoomeranFlySpeed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
