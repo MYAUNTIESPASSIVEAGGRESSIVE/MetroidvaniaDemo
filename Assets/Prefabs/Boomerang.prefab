@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3933320637806078894}
   - component: {fileID: 8175739535507363920}
   - component: {fileID: 9154902802920707809}
+  - component: {fileID: 7638082878435920934}
   m_Layer: 0
   m_Name: Boomerang
   m_TagString: Untagged
@@ -158,3 +159,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7638082878435920934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478493011418290427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619d94b9fe06b6442a6bbddaa84cdbd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoomScript: {fileID: 7601995040901921950, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
+  BoomerangFlySpeed: 10
+  PlayerPos: {fileID: 2507992095632820878, guid: a5d03e7c9145abf43a96ddbaf5422cda, type: 3}
