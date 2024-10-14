@@ -5,23 +5,22 @@ using UnityEngine;
 public class BoomerangScript : MonoBehaviour
 {
     [Header("Object References")]
-    public GameObject BoomerangStillObject;
-    public Rigidbody2D BoomerangMovingObject;
+    public Rigidbody2D BoomerangStillObject;
     public Transform PlayerPos;
 
     [Header("Boomerang Variables")]
     public float BoomerangRotSpeed = 10f;
-    public float BoomeranFlySpeed = 100f;
+    public float BoomerangFlySpeed = 10f;
     public bool InFlight;
+    public float BoomDistanceMax = 10f;
 
     private void Start()
     {
-        InFlight = false;
+
     }
 
     void Update()
     {
-        BoomerangStillObject.SetActive(!InFlight);
 
         Vector3 AimPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -33,13 +32,7 @@ public class BoomerangScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            InFlight = true;
-            BoomFlight();
+            BoomerangStillObject.velocity = new Vector2(direction.x, direction.y).normalized * BoomerangFlySpeed;
         }
-    }
-
-    void BoomFlight()
-    {
-        Instantiate(BoomerangMovingObject, BoomerangStillObject.transform.position, Quaternion.identity);
     }
 }

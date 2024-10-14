@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7954545730663657734}
   - component: {fileID: 5910567058753300078}
   - component: {fileID: 7601995040901921950}
+  - component: {fileID: 8008888409827205371}
   m_Layer: 7
   m_Name: BoomHolding
   m_TagString: Untagged
@@ -97,8 +98,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4011cda65c48140a520d9f386f5dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoomerangStillObject: {fileID: 4261259613285891612}
-  BoomerangMovingObject: {fileID: 8175739535507363920, guid: 5cae27f5d8afe7b468a4f1d7b38eda1a, type: 3}
-  PlayerPos: {fileID: 0}
+  BoomerangStillObject: {fileID: 8008888409827205371}
+  PlayerPos: {fileID: 2507992095632820878, guid: a5d03e7c9145abf43a96ddbaf5422cda, type: 3}
   BoomerangRotSpeed: 10
-  BoomeranFlySpeed: 5
+  BoomerangFlySpeed: 10
+  InFlight: 0
+--- !u!50 &8008888409827205371
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261259613285891612}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
