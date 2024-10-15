@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,8 @@ using UnityEngine;
 public class BoomerangScript : MonoBehaviour
 {
     [Header("Object References")]
-    public Rigidbody2D BoomerangStillObject;
+    public Rigidbody2D BoomMoveObj;
+    public GameObject BoomerangStillObject;
     public Transform PlayerPos;
 
     [Header("Boomerang Variables")]
@@ -13,10 +15,12 @@ public class BoomerangScript : MonoBehaviour
     public float BoomerangFlySpeed = 10f;
     public bool InFlight;
     public float BoomDistanceMax = 10f;
+    private Vector2 Targetpos;
+    private Vector3 direction;
 
     private void Start()
     {
-
+        
     }
 
     void Update()
@@ -24,7 +28,7 @@ public class BoomerangScript : MonoBehaviour
 
         Vector3 AimPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 direction = AimPoint - BoomerangStillObject.transform.position;
+        direction = AimPoint - BoomerangStillObject.transform.position;
 
         float ObjRot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
@@ -32,7 +36,12 @@ public class BoomerangScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            BoomerangStillObject.velocity = new Vector2(direction.x, direction.y).normalized * BoomerangFlySpeed;
+            BoomFlight();
         }
+    }
+
+    void BoomFlight()
+    {
+        //Instantiate<
     }
 }
