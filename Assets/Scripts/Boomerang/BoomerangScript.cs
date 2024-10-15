@@ -42,6 +42,6 @@ public class BoomerangScript : MonoBehaviour
 
     void BoomFlight()
     {
-        //Instantiate<
+        //Instantiate(BoomMoveObj,);
     }
 }
