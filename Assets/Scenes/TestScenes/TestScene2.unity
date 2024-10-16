@@ -589,11 +589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &705517854 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4261259613285891612, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
-  m_PrefabInstance: {fileID: 147688700257984600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919384669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,14 +1640,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoomHolding
       objectReference: {fileID: 0}
+    - target: {fileID: 4261259613285891612, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
+      propertyPath: m_TagString
+      value: Boomerang
+      objectReference: {fileID: 0}
     - target: {fileID: 7601995040901921950, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: PlayerPos
       value: 
       objectReference: {fileID: 1566561305}
-    - target: {fileID: 7601995040901921950, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
-      propertyPath: BoomerangStillObject
-      value: 
-      objectReference: {fileID: 705517854}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.44552946
@@ -1693,8 +1688,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8008888409827205371, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

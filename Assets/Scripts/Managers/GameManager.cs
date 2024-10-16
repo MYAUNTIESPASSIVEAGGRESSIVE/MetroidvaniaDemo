@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("References")]
+    public PlayerDeath PlayerDeathScript;
+    // change this to match player start pos
+    public static Vector2 CurrentCheckPoint;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        PlayerDeath.PlayerDead = true;
+        GameObject.FindGameObjectWithTag("Player").transform.position = CurrentCheckPoint;
     }
 }

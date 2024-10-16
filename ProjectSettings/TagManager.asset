@@ -9,6 +9,7 @@ TagManager:
   - DroppingPlat
   - MovingPlat
   - Ladder
+  - Boomerang
   layers:
   - Default
   - TransparentFX
