@@ -7,19 +7,19 @@ using UnityEngine;
 public class FallingPlatform : MonoBehaviour
 {
     [Header("Game Object References")]
+    public Transform InitalPosition;
     public Rigidbody2D FallPlatform;
 
     [Header("MovementVariables")]
-    public float FallSpeed = 2f;
     public float DelayTime = 2f;
-    public float DestroyTime = 3f;
+    public float RespawnTime = 3f;
 
     private void Start()
     {
         
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -27,20 +27,17 @@ public class FallingPlatform : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StopCoroutine(FallDelay());
-        }
-    }
-
     IEnumerator FallDelay()
     {
         yield return new WaitForSecondsRealtime(DelayTime);
-        FallPlatform.constraints = RigidbodyConstraints2D.None;
-        FallPlatform.velocity = new Vector2(FallPlatform.velocity.x, FallSpeed);
-        yield return new WaitForSecondsRealtime(DestroyTime);
-        gameObject.SetActive(false);
+        FallPlatform.bodyType = RigidbodyType2D.Dynamic;
+        yield return new WaitForSecondsRealtime(RespawnTime);
+        PlatReturn();
+    }
+
+    void PlatReturn()
+    {
+        FallPlatform.bodyType = RigidbodyType2D.Static;
+        transform.position = InitalPosition.position;
     }
 }

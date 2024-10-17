@@ -51,7 +51,7 @@ public class PlayerControl : MonoBehaviour
         // When jump button pressed + is grounded the player is able to jump
         if (Input.GetButton("Jump") && GroundChecker())
         {
-            //PlrAnim.SetBool("IsJumping", true);
+            PlrAnim.SetBool("IsJumping", true);
             PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
         }
 
@@ -82,7 +82,7 @@ public class PlayerControl : MonoBehaviour
         // if player is on ground layer then player can jump/ bool = true
          if (Physics2D.BoxCast(transform.position, CheckSize, 0, -transform.up, CastDistance, GroundLayer))
          {
-             return true;
+            return true;
          }
          else return false;
     }

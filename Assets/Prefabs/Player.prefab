@@ -148,8 +148,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000012618746}
-  m_Size: {x: 1, y: 2.0000002}
+  m_Offset: {x: 0, y: 0.018827548}
+  m_Size: {x: 1, y: 1.962345}
   m_Direction: 0
 --- !u!114 &3946300603946626600
 MonoBehaviour:
@@ -172,7 +172,7 @@ MonoBehaviour:
   CheckSize: {x: 1, y: 0.12}
   MoveSpeed: 8
   JumpHeight: 7
-  CastDistance: 1
+  CastDistance: 0.97
   OnLadder: 0
   ClimbSpeed: 2
   JetpackFueled: 0
