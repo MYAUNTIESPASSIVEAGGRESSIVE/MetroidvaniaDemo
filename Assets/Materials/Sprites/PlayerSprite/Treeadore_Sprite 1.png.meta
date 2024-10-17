@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c8fdbaefd21960e40a28f5728f663782
+guid: 732728a3b32fa8d4ca7cb3afddf5815f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,194 +93,220 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Treeadore_Sprite_0
+      name: Treeadore_Sprite 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6
+        y: 512
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c00c8a0b5ee2654c943b220c41b382c
-      internalID: 1570988256
+      spriteID: 0056be298667d8b4c9bfd1e8b04c8a31
+      internalID: 161847247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_1
+      name: Treeadore_Sprite 1_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 6
+        x: 0
+        y: 448
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8a2721b1821e58488e8fdbcf3e2c869
-      internalID: 690455256
+      spriteID: 33cb6f6fe391ddd46bcbb64aeb70d12a
+      internalID: 1291260153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_2
+      name: Treeadore_Sprite 1_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 6
+        x: 0
+        y: 384
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f95e920c0907c2e40906cc3b9a901f9b
-      internalID: -1936252446
+      spriteID: be81bf902afd64e40b8c9d88856307c4
+      internalID: 1565792349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_3
+      name: Treeadore_Sprite 1_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 6
+        x: 0
+        y: 320
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 550200ae06116764d8071d53aebecf2c
-      internalID: -1004889126
+      spriteID: 5981a33e7a45ca144be2573684fb9f90
+      internalID: 999509578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_4
+      name: Treeadore_Sprite 1_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 6
+        x: 0
+        y: 256
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46eeca5f1debbca48bef78f6dcdd846a
-      internalID: 65767336
+      spriteID: 860d5af58ebb2af428a2df6e7b11ec30
+      internalID: -1014588787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_5
+      name: Treeadore_Sprite 1_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 6
+        x: 0
+        y: 192
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8bcc31feba51844b8f04245c0322e9
-      internalID: 805100877
+      spriteID: eb585c0665d9c8c4492a07c5983a3c07
+      internalID: 483987933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_6
+      name: Treeadore_Sprite 1_6
       rect:
         serializedVersion: 2
-        x: 192
-        y: 6
+        x: 0
+        y: 128
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b8965bddce8a324cbbc7a573e5ab546
-      internalID: -1413318445
+      spriteID: 6c36e4f4eebc0f74987c438ac7354b2d
+      internalID: -664998103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_7
+      name: Treeadore_Sprite 1_7
       rect:
         serializedVersion: 2
-        x: 224
-        y: 6
+        x: 0
+        y: 64
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 367be472d3da5f044aa73dc49bd86fa8
-      internalID: -1211751577
+      spriteID: 201e78f30d1865849a0d0ea8ac120f4b
+      internalID: -1439958107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treeadore_Sprite_8
+      name: Treeadore_Sprite 1_8
       rect:
         serializedVersion: 2
-        x: 256
-        y: 6
+        x: 0
+        y: 0
         width: 32
-        height: 58
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b71abb1c9a12d1640a9d599e19ebc685
-      internalID: 842662199
+      spriteID: 4dc6f6ce64010b64e8ab7bc9827d5f1c
+      internalID: 729660716
       vertices: []
       indices: 
       edges: []
@@ -296,15 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Treeadore_Sprite_0: 1570988256
-      Treeadore_Sprite_1: 690455256
-      Treeadore_Sprite_2: -1936252446
-      Treeadore_Sprite_3: -1004889126
-      Treeadore_Sprite_4: 65767336
-      Treeadore_Sprite_5: 805100877
-      Treeadore_Sprite_6: -1413318445
-      Treeadore_Sprite_7: -1211751577
-      Treeadore_Sprite_8: 842662199
+      Treeadore_Sprite 1_0: 161847247
+      Treeadore_Sprite 1_1: 1291260153
+      Treeadore_Sprite 1_2: 1565792349
+      Treeadore_Sprite 1_3: 999509578
+      Treeadore_Sprite 1_4: -1014588787
+      Treeadore_Sprite 1_5: 483987933
+      Treeadore_Sprite 1_6: -664998103
+      Treeadore_Sprite 1_7: -1439958107
+      Treeadore_Sprite 1_8: 729660716
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

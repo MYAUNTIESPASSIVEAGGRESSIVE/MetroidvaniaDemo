@@ -29,7 +29,7 @@ public class BoomerangScript : MonoBehaviour
     }
 
     // handles the boomerang pointing and shooting initation
-    void FixedUpdate()
+    void Update()
     {
         if (!InFlight)
         {
