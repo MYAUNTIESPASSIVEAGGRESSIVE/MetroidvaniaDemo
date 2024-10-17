@@ -1036,6 +1036,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3946300603946626600, guid: a5d03e7c9145abf43a96ddbaf5422cda, type: 3}
+      propertyPath: FuelAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946300603946626600, guid: a5d03e7c9145abf43a96ddbaf5422cda, type: 3}
+      propertyPath: JetpackFueled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
