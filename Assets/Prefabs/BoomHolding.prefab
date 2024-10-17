@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoomObject: {fileID: -3590080368055356120}
-  PlayerPos: {fileID: 2507992095632820878, guid: a5d03e7c9145abf43a96ddbaf5422cda, type: 3}
+  PlayerPos: {fileID: 0}
   RotSpeed: 10
   FlySpeed: 10
   DelayTime: 3

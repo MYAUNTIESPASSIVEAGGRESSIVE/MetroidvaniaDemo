@@ -69,6 +69,7 @@ public class BoomerangScript : MonoBehaviour
         {
             // moves the boomerang towards the target point
             BoomObject.position = Vector2.MoveTowards(BoomObject.position, targetPoint, FlySpeed * Time.deltaTime);
+            transform.Rotate(0, 0, 20);
 
             // if the boomerang reaches the target point then it can now return to the player
             if (Vector2.Distance(BoomObject.position, targetPoint) < 0.05f)
@@ -84,6 +85,7 @@ public class BoomerangScript : MonoBehaviour
         {
             // moves the boomerang to the player
             BoomObject.position = Vector2.MoveTowards(BoomObject.position, PlayerPos.position, FlySpeed * Time.deltaTime);
+            transform.Rotate(0, 0, 20);
             // if the player and boomerang are in the same position
             if (Vector2.Distance(BoomObject.position, PlayerPos.position) < 0.05f)
             {

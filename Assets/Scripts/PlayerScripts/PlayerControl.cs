@@ -8,6 +8,9 @@ public class PlayerControl : MonoBehaviour
     [Header("Game Object References")]
     public LayerMask GroundLayer;
     private Rigidbody2D PlrRB;
+    public Animator PlrAnim;
+    public SpriteRenderer PlrSprite;
+    public Sprite JumpSprite;
     public Vector2 CheckSize;
 
     [Header("Movement Variables")]
@@ -15,7 +18,6 @@ public class PlayerControl : MonoBehaviour
     public float JumpHeight = 5f;
     private float HozPos;
     private float VertPos;
-    private bool Interacted;
     public float CastDistance = 1f;
     public bool OnLadder = false;
     public float ClimbSpeed = 2f;
@@ -29,6 +31,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         PlrRB = GetComponent<Rigidbody2D>();
+        PlrAnim = GetComponent<Animator>();
         OnLadder = false;
     }
 
@@ -36,11 +39,9 @@ public class PlayerControl : MonoBehaviour
     {
         HozPos = Input.GetAxisRaw("Horizontal");
         VertPos = Input.GetAxisRaw("Vertical");
-        Input.GetKeyDown(KeyCode.E);
+        PlrAnim.SetFloat("Speed", Mathf.Abs(HozPos));
 
         CharacterMove();
-
-
     }
 
     private void CharacterMove()
@@ -50,6 +51,7 @@ public class PlayerControl : MonoBehaviour
         // When jump button pressed + is grounded the player is able to jump
         if (Input.GetButton("Jump") && GroundChecker())
         {
+            //PlrAnim.SetBool("IsJumping", true);
             PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
         }
 
@@ -60,6 +62,7 @@ public class PlayerControl : MonoBehaviour
             {
                 PlrRB.AddForce(transform.up * FlightSpeed, ForceMode2D.Force);
 
+                PlrAnim.SetBool("IsFlying", true);
                 // fuel reduces while in flight
                 FuelAmount = FuelAmount - ReduceAmount;
 
@@ -67,6 +70,7 @@ public class PlayerControl : MonoBehaviour
                 if (FuelAmount <= 0f)
                 {
                     JetpackFueled = false;
+                    PlrAnim.SetBool("IsFlying", false);
                 }
             }
         }
@@ -94,8 +98,10 @@ public class PlayerControl : MonoBehaviour
     {
         if (ladder.gameObject.CompareTag("Ladder"))
         {
+            PlrRB.gravityScale = 0.01f;
             OnLadder = true;
             PlrRB.velocity = new Vector2(PlrRB.velocity.x, VertPos * ClimbSpeed);
+            PlrAnim.SetBool("IsClimbing", true);
         }
     }
 
@@ -103,6 +109,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (ladder.gameObject.CompareTag("Ladder"))
         {
+            PlrAnim.SetBool("IsClimbing", false);
+            PlrRB.gravityScale = 1;
             OnLadder = false;
         }
     }

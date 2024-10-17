@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 624266397358278554}
   - component: {fileID: 7533504992777080203}
   - component: {fileID: 3946300603946626600}
+  - component: {fileID: 333990767190063853}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -165,16 +166,40 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  PlrAnim: {fileID: 333990767190063853}
+  PlrSprite: {fileID: 5600156984907692544}
+  JumpSprite: {fileID: 729660716, guid: 732728a3b32fa8d4ca7cb3afddf5815f, type: 3}
   CheckSize: {x: 1, y: 0.12}
   MoveSpeed: 8
   JumpHeight: 7
   CastDistance: 1
   OnLadder: 0
   ClimbSpeed: 2
-  JetpackFueled: 1
-  FuelAmount: 10000
+  JetpackFueled: 0
+  FuelAmount: 0
   ReduceAmount: 2
   FlightSpeed: 1
+--- !u!95 &333990767190063853
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483870673484053350}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2b4b5d6052ef5f4cb88066700f82b96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4645853279853405523
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,14 +251,14 @@ PrefabInstance:
     - target: {fileID: 7601995040901921950, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: PlayerPos
       value: 
-      objectReference: {fileID: 4209765452667779351}
+      objectReference: {fileID: 5310282221327288002}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.171
       objectReference: {fileID: 0}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.371
+      value: 0.3709999
       objectReference: {fileID: 0}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -245,15 +270,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7954545730663657734, guid: c6655983d0e951f418fd4c243e03243c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
