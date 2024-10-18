@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class PlayerControl : MonoBehaviour
     public SpriteRenderer PlrSprite;
     public Sprite JumpSprite;
     public Vector2 CheckSize;
+    public Canvas PauseMenu;
+    public Canvas DeathMenu;
+    public SceneManagers SceneManagersScript;
 
     [Header("Movement Variables")]
     public float MoveSpeed = 20f;
@@ -25,6 +30,7 @@ public class PlayerControl : MonoBehaviour
     [Header("Jetpack Variables")]
     public bool JetpackFueled = false;
     public float FuelAmount = 0f;
+    public float FuelMaximum = 100f;
     public float ReduceAmount = 5f;
     public float FlightSpeed = 5f;
 
@@ -42,16 +48,26 @@ public class PlayerControl : MonoBehaviour
         PlrAnim.SetFloat("Speed", Mathf.Abs(HozPos));
 
         CharacterMove();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu.gameObject.SetActive(true);
+        }
+
+        if (FuelAmount >= 0.01)
+        {
+            JetpackFueled = true;
+        }
     }
 
     private void CharacterMove()
     {
         PlrRB.velocity = new Vector2(HozPos * MoveSpeed, PlrRB.velocity.y);
 
+
         // When jump button pressed + is grounded the player is able to jump
         if (Input.GetButton("Jump") && GroundChecker())
         {
-            PlrAnim.SetBool("IsJumping", true);
             PlrRB.velocity = new Vector2(PlrRB.velocity.x, JumpHeight);
         }
 
@@ -72,6 +88,10 @@ public class PlayerControl : MonoBehaviour
                     JetpackFueled = false;
                     PlrAnim.SetBool("IsFlying", false);
                 }
+            }
+            else
+            {
+                PlrAnim.SetBool("IsFlying", false);
             }
         }
     }
@@ -113,5 +133,30 @@ public class PlayerControl : MonoBehaviour
             PlrRB.gravityScale = 1;
             OnLadder = false;
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void MenuButton()
+    {
+        SceneManagersScript.SceneChanger("Main Menu");
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnDeath()
+    {
+        DeathMenu.gameObject.SetActive(true);
+    }
+
+    public void AddFuel()
+    {
+        FuelAmount = FuelAmount + FuelMaximum;
     }
 }

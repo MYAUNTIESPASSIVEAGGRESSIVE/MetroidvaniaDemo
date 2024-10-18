@@ -16,7 +16,7 @@ public class FallingPlatform : MonoBehaviour
 
     private void Start()
     {
-        
+        InitalPosition.position = transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
