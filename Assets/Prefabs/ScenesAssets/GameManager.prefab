@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850e6c109c88cb54f90d84b9542df7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerScript: {fileID: 3946300603946626600, guid: a5d03e7c9145abf43a96ddbaf5422cda, type: 3}
   SceneManagerScript: {fileID: 811489197459005678, guid: dc223b6371a66ff45a8767cc5546006f, type: 3}
+  DeathScreenUI: {fileID: 1101711309686596953, guid: 69b2022cb1c1ae0489444d5bf1797fea, type: 3}
+  Player: {fileID: 1483870673484053350, guid: a5d03e7c9145abf43a96ddbaf5422cda, type: 3}
+  PlayerDied: 1

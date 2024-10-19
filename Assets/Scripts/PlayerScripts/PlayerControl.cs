@@ -15,8 +15,10 @@ public class PlayerControl : MonoBehaviour
     public Sprite JumpSprite;
     public Vector2 CheckSize;
     public Canvas PauseMenu;
-    public Canvas DeathMenu;
     public SceneManagers SceneManagersScript;
+    public GameManager GameManagerScript;
+    public GameObject Boomerang;
+    public Slider JPSlider;
 
     [Header("Movement Variables")]
     public float MoveSpeed = 20f;
@@ -26,6 +28,7 @@ public class PlayerControl : MonoBehaviour
     public float CastDistance = 1f;
     public bool OnLadder = false;
     public float ClimbSpeed = 2f;
+    private bool canMove = true;
 
     [Header("Jetpack Variables")]
     public bool JetpackFueled = false;
@@ -39,6 +42,9 @@ public class PlayerControl : MonoBehaviour
         PlrRB = GetComponent<Rigidbody2D>();
         PlrAnim = GetComponent<Animator>();
         OnLadder = false;
+
+        JPSlider.maxValue = FuelMaximum;
+        JPSlider.value = FuelAmount;
     }
 
     void Update()
@@ -47,11 +53,14 @@ public class PlayerControl : MonoBehaviour
         VertPos = Input.GetAxisRaw("Vertical");
         PlrAnim.SetFloat("Speed", Mathf.Abs(HozPos));
 
-        CharacterMove();
+        if (canMove)
+        {
+            CharacterMove();
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseMenu.gameObject.SetActive(true);
+            PausedGame();
         }
 
         if (FuelAmount >= 0.01)
@@ -64,6 +73,7 @@ public class PlayerControl : MonoBehaviour
     {
         PlrRB.velocity = new Vector2(HozPos * MoveSpeed, PlrRB.velocity.y);
 
+        PlrSprite.flipX = (HozPos < 0.0f) ? true : false;
 
         // When jump button pressed + is grounded the player is able to jump
         if (Input.GetButton("Jump") && GroundChecker())
@@ -80,7 +90,10 @@ public class PlayerControl : MonoBehaviour
 
                 PlrAnim.SetBool("IsFlying", true);
                 // fuel reduces while in flight
+
                 FuelAmount = FuelAmount - ReduceAmount;
+
+                JPSlider.value = FuelAmount;
 
                 // if the fuel ammount is 0 then the player cannot keep flying and falls
                 if (FuelAmount <= 0f)
@@ -135,28 +148,23 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    public void QuitGame()
+    private void PausedGame()
     {
-        Application.Quit();
+        PauseMenu.gameObject.SetActive(true);
+        Boomerang.SetActive(false);
+        canMove = false;
     }
 
-    public void MenuButton()
+    public void UnPause()
     {
-        SceneManagersScript.SceneChanger("Main Menu");
-    }
-
-    public void Reset()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void OnDeath()
-    {
-        DeathMenu.gameObject.SetActive(true);
+        PauseMenu.gameObject.SetActive(false);
+        Boomerang.SetActive(true);
+        canMove = true;
     }
 
     public void AddFuel()
     {
         FuelAmount = FuelAmount + FuelMaximum;
+        JPSlider.value = FuelAmount;
     }
 }

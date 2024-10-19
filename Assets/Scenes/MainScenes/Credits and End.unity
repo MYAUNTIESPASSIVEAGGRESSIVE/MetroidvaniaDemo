@@ -567,6 +567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db0419c99a144844b2e1e09e99090ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneFadeImage: {fileID: 0}
+  SceneFadeObject: {fileID: 0}
+  FadeDuration: 1
 --- !u!4 &809839604
 Transform:
   m_ObjectHideFlags: 0

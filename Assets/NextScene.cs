@@ -11,7 +11,7 @@ public class NextScene : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GameManager.LoadNextScene(SceneName);
+            GameManager.SceneChange();
         }
     }
 }

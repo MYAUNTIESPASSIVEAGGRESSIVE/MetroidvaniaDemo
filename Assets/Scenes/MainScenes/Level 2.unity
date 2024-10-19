@@ -1764,6 +1764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8879812894341938513, guid: 9a5b0fe89da694e4f80ad82dfc62a4d4, type: 3}
+      propertyPath: PlayerDied
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

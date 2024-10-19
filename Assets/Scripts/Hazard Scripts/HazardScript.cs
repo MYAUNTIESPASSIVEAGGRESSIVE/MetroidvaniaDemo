@@ -5,14 +5,16 @@ using UnityEngine;
 public class HazardScript : MonoBehaviour
 {
     [Header("Script References")]
-    public GameManager PlayerDeathScript;
+    public GameManager GameManagerScript;
 
-    private void OnCollisionEnter2D(Collision2D player)
+
+    private void OnTriggerEnter2D(Collider2D player)
     {
         // when the player hits the collider then the death function is activated.
         if (player.gameObject.CompareTag("Player"))
         {
-            PlayerDeathScript.OnPlayerDeath();
+            Debug.Log("Enter");
+            GameManagerScript.PlayerDied = true;
         }
     }
 }
