@@ -554,6 +554,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 8879812894341938513, guid: 9a5b0fe89da694e4f80ad82dfc62a4d4, type: 3}
+      propertyPath: PlayerDied
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879812894341938513, guid: 9a5b0fe89da694e4f80ad82dfc62a4d4, type: 3}
       propertyPath: DeathScreenUI
       value: 
       objectReference: {fileID: 1512534163}
@@ -899,7 +903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4035412466b0704ca7520d2c9ef359d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerScript: {fileID: 659605133}
+  GameManagerScript: {fileID: 1314873013}
 --- !u!19719996 &1183346487
 TilemapCollider2D:
   m_ObjectHideFlags: 0

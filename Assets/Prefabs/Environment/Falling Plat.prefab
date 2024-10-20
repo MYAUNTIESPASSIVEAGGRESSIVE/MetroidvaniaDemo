@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3682654227045939297}
   - component: {fileID: 7647494677848400408}
   - component: {fileID: 5079798951462539365}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Falling Plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

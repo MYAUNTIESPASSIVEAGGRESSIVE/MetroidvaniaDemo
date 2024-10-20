@@ -19,11 +19,6 @@ public class GameManager : MonoBehaviour
         if (PlayerDied) OnPlayerDeath();
     }
 
-    public void LoadNextScene(string sceneName)
-    {
-        SceneManagerScript.SceneChanger(sceneName);
-    }
-
     public void QuitGame()
     {
         Application.Quit();
@@ -31,18 +26,19 @@ public class GameManager : MonoBehaviour
 
     public void MenuButton()
     {
-        SceneManagerScript.SceneChanger("Main Menu");
+        SceneManager.LoadScene(0);
     }
 
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManagerScript.FadeIn(1);
     }
 
     private void OnPlayerDeath()
     {
         DeathScreenUI.SetActive(true);
-        Time.timeScale = 0;
+        Player.SetActive(false);
     }
 
     public void SceneChange()

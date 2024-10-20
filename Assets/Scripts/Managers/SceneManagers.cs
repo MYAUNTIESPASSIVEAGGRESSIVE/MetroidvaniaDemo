@@ -16,17 +16,6 @@ public class SceneManagers : MonoBehaviour
         yield return FadeIn(FadeDuration);
     }
 
-    private IEnumerator LoadScene(string sceneName)
-    {
-        yield return FadeOut(FadeDuration);
-        yield return SceneManager.LoadSceneAsync(sceneName);
-    }
-
-    public void SceneChanger(string sceneName)
-    {
-        StartCoroutine(LoadScene(sceneName));
-    }
-
     public IEnumerator FadeIn(float duration)
     {
         Color startC = new Color(SceneFadeImage.color.r, SceneFadeImage.color.g, SceneFadeImage.color.b, 1);

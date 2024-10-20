@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2507992095632820878
 Transform:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   PlrAnim: {fileID: 333990767190063853}
   PlrSprite: {fileID: 5600156984907692544}
   JumpSprite: {fileID: 729660716, guid: 732728a3b32fa8d4ca7cb3afddf5815f, type: 3}
-  CheckSize: {x: 1, y: 0.12}
+  CheckSize: {x: 0.8, y: 0.12}
   PauseMenu: {fileID: 7278001521710602715}
   SceneManagersScript: {fileID: 811489197459005678, guid: dc223b6371a66ff45a8767cc5546006f, type: 3}
   GameManagerScript: {fileID: 8879812894341938513, guid: 9a5b0fe89da694e4f80ad82dfc62a4d4, type: 3}

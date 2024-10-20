@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class NextScene : MonoBehaviour
 {
-    public string SceneName;
     public GameManager GameManager;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player"))
         {
             GameManager.SceneChange();
         }

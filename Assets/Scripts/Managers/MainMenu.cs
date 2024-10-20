@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
     public void PressStart()
     {
-        SceneManagerScript.SceneChanger("Level 1");
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()
